@@ -57,7 +57,6 @@ class EquipmentDetail(View):
         )
 
 
-# Not Working
 class EquipmentCreateView(generic.CreateView):
     model = Equipment
     form_class = EquipmentForm
