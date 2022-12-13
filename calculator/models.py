@@ -66,7 +66,7 @@ class Calculator(models.Model):
         ordering = ['make_and_model']
 
     def __str__(self):
-        return f"{self.make_and_model} used for {self.exposure_duration_hours} hours and {exposure_duration_minutes} minutes"
+        return f"{self.make_and_model} used for {self.exposure_duration_hours} hours and {self.exposure_duration_minutes} minutes"
 
     def partial_exposure(self):
         eav = float(2.5)

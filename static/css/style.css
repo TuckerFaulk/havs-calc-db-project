@@ -1,0 +1,59 @@
+body {
+    background-color: #F9FAFC;
+}
+
+/* Colors */
+
+.blue {
+    background-color: rgb(108, 171, 221);
+}
+
+.text-gold {
+    color: rgb(255, 198, 89);
+    font-weight: bolder;
+}
+
+.maroon {
+    color: rgb(50.2%, 0%, 0%);
+}
+
+/* Header */
+
+#logo {
+    font-size: x-large;
+}
+
+li > a {
+    color: black;
+}
+
+/* Jumbotron */
+
+.jumbotron {
+    background-image: url(../images/compactor.jpg);
+    background-size: cover;
+    height: 500px;
+}
+
+/* Project Detail */
+
+#equipment-list {
+    height: 97.5px;
+}
+
+.table thead th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Equipment List */
+
+.card img {
+    height: 350px;
+}
+
+/* Equipment Detail */
+
+#equip-detail-img {
+    height: 500px;
+}
