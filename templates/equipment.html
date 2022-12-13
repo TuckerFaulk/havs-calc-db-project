@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row m-4">
+    <!-- Equipment List Column -->
+    <div class="col-12 d-flex justify-content-end">
+      <a class="btn btn-primary" href="#" role="button"><i class="fa-solid fa-plus"></i> Add Equipment</a>
+    </div>
+  </div>
+
+
+  <div class="row m-4">
+    {% for equipment in equipment_list %}
+    <div class="card" style="width: 18rem;"> 
+      <!-- Add Image Placeholder -->
+      <img src="{{ equipment.equipment_image.url }}" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">{{ equipment.category }} - {{ equipment.make_and_model }}</h5>
+        <a href="#" class="btn btn-primary">View Details</a>
+        <a href="#" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+        <a href="#" class="btn btn-primary"><i class="fa-solid fa-trash"></i></a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{%endblock%}
