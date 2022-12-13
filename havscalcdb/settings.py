@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['havs-calc-db-project.herokapp.com', 'localhost']
+ALLOWED_HOSTS = ['havs-calc-db-project.herokuapp.com', 'localhost']
 
 
 # Application definition
