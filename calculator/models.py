@@ -6,11 +6,22 @@ from django.template.defaultfilters import slugify
 import math
 
 
+class Categories(models.Model):
+    category = models.CharField(max_length=25, unique=True)
+
+    class Meta:
+        ordering = ['category']
+
+    def __str__(self):
+        return self.category
+
+
 class Equipment(models.Model):
     make_and_model = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="equipment_user")
     updated_on = models.DateTimeField(auto_now=True)
+    category = models.ForeignKey(Categories, on_delete=models.CASCADE, related_name="equipment_category")
     vibration_magnitude = models.FloatField()
     test_date = models.DateField()
     equipment_image = CloudinaryField('image', default='placeholder')
@@ -52,10 +63,10 @@ class Calculator(models.Model):
     exposure_duration_minutes = models.IntegerField(default=0, validators=[MaxValueValidator(59)])
 
     class Meta:
-        ordering = ['title']
+        ordering = ['make_and_model']
 
     def __str__(self):
-        return f"{self.make_and_model} used in {self.title}"
+        return f"{self.make_and_model} used for {self.exposure_duration_hours} hours and {exposure_duration_minutes} minutes"
 
     def partial_exposure(self):
         eav = float(2.5)
