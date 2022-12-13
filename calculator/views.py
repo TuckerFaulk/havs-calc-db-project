@@ -30,6 +30,11 @@ class CalculatorEditView(generic.UpdateView):
     success_url = '/calculator/'
 
 
+class CalculatorDeleteView(generic.DeleteView):
+    model = Calculator
+    template_name = 'delete-calculator.html'
+    success_url = '/calculator/'
+
 # Equipment Views
 
 class EquipmentListView(generic.ListView):

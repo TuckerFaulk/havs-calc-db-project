@@ -7,7 +7,7 @@
   <div class="row m-4">
     <!-- Equipment Detail Column -->
     <div class="col-12 d-flex justify-content-end">
-      <a class="btn btn-primary" href="{% url 'add-calculator' %}" role="button"><i class="fa-solid fa-plus"></i> Add Equipment</a>
+      <a class="btn btn-primary" href="{% url 'add_calculator' %}" role="button"><i class="fa-solid fa-plus"></i> Add Equipment</a>
       <button class="btn btn-primary" id="calc-daily-exposure"><i class="fa-solid fa-calculator"></i> Calculate Daily Exposure</button>
       <a class="btn btn-primary" href="#" role="button">Reset</a>
     </div>
@@ -40,7 +40,7 @@
                       <td>{{ equipment.make_and_model.time_to_elv }}</td>
                       <td>{{ equipment.exposure_duration_hours }} Hours {{ equipment.exposure_duration_minutes }} Minutes</td>
                       <td><a href="{% url 'edit_calculator' equipment.slug %}"><i class="fa-solid fa-pen-to-square"></i></a></td> 
-                      <td><a href="#"><i class="fa-solid fa-trash"></i></td>
+                      <td><a href="{% url 'delete_calculator' equipment.slug %}"><i class="fa-solid fa-trash"></i></td>
                     </tr>
                   {% endfor %}
                   </tbody>

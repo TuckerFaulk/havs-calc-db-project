@@ -6,11 +6,11 @@
 
 <div class="container">
   <div class="row m-4">
-    <h1>Add Equipment to Calculator</h1>
+    <h1>Delete Project</h1>
   </div>
   <div class="row m-4">
     <form method="POST" style="margin-top: 1.3em;">
-      {{ form | crispy }}
+      <h3>Do you want to delete the following equipment from the calculator: {{ object.make_and_model }}?</h3>
       {% csrf_token %}
       <button type="submit" class="btn btn-signup btn-lg">Submit</button>
       <a class="btn btn-primary" href="{% url 'calculator_list' %}" role="button">Cancel</a>
