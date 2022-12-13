@@ -37,6 +37,7 @@ class CalculatorDeleteView(generic.DeleteView):
 
 # Equipment Views
 
+
 class EquipmentListView(generic.ListView):
     model = Equipment
     queryset = Equipment.objects.filter(approved=True)
@@ -54,3 +55,27 @@ class EquipmentDetail(View):
             "equipment-detail.html",
             {'equipment': equipment},
         )
+
+
+# Not Working
+class EquipmentCreateView(generic.CreateView):
+    model = Equipment
+    form_class = EquipmentForm
+    template_name = 'add-equipment.html'
+    success_url = '/equipment/'
+
+
+class EquipmentEditView(generic.UpdateView):
+    model = Equipment
+    form_class = EquipmentForm
+    template_name = 'add-equipment.html'
+    success_url = '/equipment/'
+
+
+class EquipmentDeleteView(generic.DeleteView):
+    model = Equipment
+    template_name = 'delete-equipment.html'
+    success_url = '/equipment/'
+
+
+
