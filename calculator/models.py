@@ -34,6 +34,12 @@ class Equipment(models.Model):
     def __str__(self):
         return self.make_and_model
 
+    # Source: https://github.com/veryacademy/YT-Django-CBV-Mini-Series/blob/master/CreateView/books/models.py
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.make_and_model)
+        return super().save(*args, **kwargs)
+
     def exp_pts_per_hour(self):
         eav = float(2.5)
         per_hour = float(0.125)
@@ -67,6 +73,12 @@ class Calculator(models.Model):
 
     def __str__(self):
         return f"{self.make_and_model} used for {self.exposure_duration_hours} hours and {self.exposure_duration_minutes} minutes"
+    
+        # Source: https://github.com/veryacademy/YT-Django-CBV-Mini-Series/blob/master/CreateView/books/models.py
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(f'{self.make_and_model}-{self.exposure_duration_hours}-{self.exposure_duration_minutes}')
+        return super().save(*args, **kwargs)
 
     def partial_exposure(self):
         eav = float(2.5)

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Equipment, Calculator
+from .forms import CalculatorForm, EquipmentForm
 
 
 def Index(request):
@@ -13,6 +14,20 @@ class CalculatorListView(generic.ListView):
     model = Calculator
     queryset = Calculator.objects.order_by('make_and_model')
     template_name = 'calculator.html'
+
+
+class CalculatorCreateView(generic.CreateView):
+    model = Calculator
+    form_class = CalculatorForm
+    template_name = 'add-calculator.html'
+    success_url = '/calculator/'
+
+
+class CalculatorEditView(generic.UpdateView):
+    model = Calculator
+    form_class = CalculatorForm
+    template_name = 'edit-calculator.html'
+    success_url = '/calculator/'
 
 
 # Equipment Views
