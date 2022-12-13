@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.Index, name='index'),
     path('calculator/', views.CalculatorListView.as_view(), name='calculator_list'),
     path('equipment/', views.EquipmentListView.as_view(), name='equipment_list'),
+    path('equipment/<slug:slug>/', views.EquipmentDetail.as_view(), name='equipment_detail'),
 ]
